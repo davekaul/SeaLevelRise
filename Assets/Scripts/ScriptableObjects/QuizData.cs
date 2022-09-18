@@ -6,18 +6,31 @@ using UnityEngine;
 public class QuizData : ScriptableObject
 {
     [Serializable]
-    private class Question
+    public class Question
     {
         [SerializeField] private string _questionText;
         [SerializeField] private List<Answer> _answers;
     }
 
     [Serializable]
-    private class Answer
+    public class Answer
     {
         [SerializeField] private string _answerText;
         [SerializeField] private bool _isCorrect;
     }
 
     [SerializeField] private List<Question> _questions;
+
+    private int _currentQuestion = -1;
+    
+    public void InitQuiz()
+    {
+        _currentQuestion = 0;
+    }
+
+    public Question GetNextQuestion()
+    {
+        if (_currentQuestion >= _questions.Count) return null;
+        return _questions[_currentQuestion++];
+    }
 }
