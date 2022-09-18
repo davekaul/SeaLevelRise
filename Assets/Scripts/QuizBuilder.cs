@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class QuizBuilder : MonoBehaviour
 {
-    [SerializeField] private GameObject _quizPrefab;
+    [SerializeField] private GameObject _quizQuestionPrefab;
+    [SerializeField] private GameObject _quizAnswerPrefab;
     [SerializeField] private QuizData _quizData;
 
     private GameObject _currentQuestion = null;
@@ -28,9 +29,9 @@ public class QuizBuilder : MonoBehaviour
         else
         {
             DestroyQuestion();
-            _quizPrefab = Instantiate(_quizPrefab, transform);
-            var questionController = _quizPrefab.GetComponent<QuizQuestionController>();
-            questionController.Init(question);
+            _quizQuestionPrefab = Instantiate(_quizQuestionPrefab, transform);
+            var questionController = _quizQuestionPrefab.GetComponent<QuizQuestionController>();
+            questionController.Init(question, _quizAnswerPrefab);
         }
     }
 

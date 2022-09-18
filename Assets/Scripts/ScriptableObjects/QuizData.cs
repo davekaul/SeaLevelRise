@@ -10,6 +10,16 @@ public class QuizData : ScriptableObject
     {
         [SerializeField] private string _questionText;
         [SerializeField] private List<Answer> _answers;
+
+        public string GetQuestionText()
+        {
+            return _questionText;
+        }
+
+        public List<Answer> GetAnswers()
+        {
+            return new List<Answer>(_answers);
+        }
     }
 
     [Serializable]
@@ -17,6 +27,15 @@ public class QuizData : ScriptableObject
     {
         [SerializeField] private string _answerText;
         [SerializeField] private bool _isCorrect;
+        public string GetAnswerText()
+        {
+            return _answerText;
+        }
+
+        public bool IsCorrect()
+        {
+            return _isCorrect;
+        }
     }
 
     [SerializeField] private List<Question> _questions;
