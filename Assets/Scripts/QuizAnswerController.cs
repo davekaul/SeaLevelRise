@@ -3,8 +3,12 @@ using UnityEngine.Assertions;
 
 public class QuizAnswerController : QuizController
 {
+    public bool IsCorrect { get; private set; }
+
     public void Init(string answer, bool isCorrect)
     {
+        IsCorrect = isCorrect;
+
         var answerGo = FindWithTag(transform, "QuizAnswersText");
         if (answerGo != null)
         {

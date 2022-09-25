@@ -54,6 +54,7 @@ public class QuizQuestionController : QuizController
                 toggle.onValueChanged.AddListener(
                     delegate
                     {
+                        UpdateScore(controller.IsCorrect);
                         OnAnswerSelected();
                     });
             }
@@ -62,5 +63,10 @@ public class QuizQuestionController : QuizController
         {
             Assert.IsTrue(false, "QuizAnswers tag not found");
         }   
+    }
+
+    private void UpdateScore(bool isCorrect)
+    {
+        // TODO: Cache question count and score as static and provide to InitComplete
     }
 }
