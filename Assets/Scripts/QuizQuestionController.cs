@@ -8,6 +8,22 @@ using Oculus.Interaction;
 
 public class QuizQuestionController : QuizController
 {
+    public void InitComplete(string successText)
+    {
+        var questionGo = FindWithTag(transform, "QuizQuestionText");
+        if (questionGo != null)
+        {
+            var text = questionGo.GetComponent<TextMeshProUGUI>();
+            Assert.IsNotNull(text, "No text found on QuizQuestion");
+
+            text.text = successText;
+        }
+        else
+        {
+            Assert.IsTrue(false, "QuizQuestion tag not found");
+        }
+    }
+
     public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected)
     {
         var questionGo = FindWithTag(transform, "QuizQuestionText");

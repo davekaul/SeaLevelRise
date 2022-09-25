@@ -11,8 +11,6 @@ public class QuizBuilder : MonoBehaviour
 
     private GameObject _currentQuestion = null;
 
-    public Action OnQuizComplete = delegate { };
-
     public void Start()
     {
         _quizData.InitQuiz();
@@ -21,16 +19,17 @@ public class QuizBuilder : MonoBehaviour
 
     private void BuildNextQuestion()
     {
+        DestroyQuestion();
+        _currentQuestion = Instantiate(_quizQuestionPrefab, transform);
+        var questionController = _currentQuestion.GetComponent<QuizQuestionController>();
+
         var question = _quizData.GetNextQuestion();
         if (question == null)
         {
-            OnQuizComplete();
+            questionController.InitComplete("Quiz is Finished!!");
         }
         else
         {
-            DestroyQuestion();
-            _currentQuestion = Instantiate(_quizQuestionPrefab, transform);
-            var questionController = _currentQuestion.GetComponent<QuizQuestionController>();
             questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected);
         }
     }
