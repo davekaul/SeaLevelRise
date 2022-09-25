@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using Oculus.Interaction;
 
 public class QuizQuestionController : QuizController
 {
-    public void Init(QuizData.Question question, GameObject quizAnswerPrefab)
+    public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected)
     {
         var questionGo = FindWithTag(transform, "QuizQuestionText");
         if (questionGo != null)
@@ -27,10 +29,17 @@ public class QuizQuestionController : QuizController
             foreach (var ansData in question.GetAnswers())
             {
                 var answer = Instantiate(quizAnswerPrefab, answerGo);
+
                 var controller = answer.GetComponent<QuizAnswerController>();
                 controller.Init(ansData.GetAnswerText(), ansData.IsCorrect());
 
-                // TODO: Rig onclick event to load next question, or show completeion canvas
+                var toggle = answer.GetComponent<ToggleDeselect>();
+
+                toggle.onValueChanged.AddListener(
+                    delegate
+                    {
+                        OnAnswerSelected();
+                    });
             }
         }
         else

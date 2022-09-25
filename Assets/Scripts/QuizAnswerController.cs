@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
 using UnityEngine.Assertions;
 
 public class QuizAnswerController : QuizController
@@ -11,7 +8,7 @@ public class QuizAnswerController : QuizController
         var answerGo = FindWithTag(transform, "QuizAnswersText");
         if (answerGo != null)
         {
-            answerGo.GetComponent<TextMeshProUGUI>()?.SetText(answer);
+            answerGo.GetComponent<TextMeshProUGUI>().SetText(answer);
         }
         else
         {

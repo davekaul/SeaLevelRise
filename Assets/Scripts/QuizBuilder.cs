@@ -29,15 +29,19 @@ public class QuizBuilder : MonoBehaviour
         else
         {
             DestroyQuestion();
-            _quizQuestionPrefab = Instantiate(_quizQuestionPrefab, transform);
-            var questionController = _quizQuestionPrefab.GetComponent<QuizQuestionController>();
-            questionController.Init(question, _quizAnswerPrefab);
+            _currentQuestion = Instantiate(_quizQuestionPrefab, transform);
+            var questionController = _currentQuestion.GetComponent<QuizQuestionController>();
+            questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected);
         }
     }
 
     private void DestroyQuestion()
     {
-        if (_currentQuestion != null) Destroy(_currentQuestion);
+        if (_currentQuestion != null)
+        {
+            _currentQuestion.gameObject.SetActive(false);
+            _currentQuestion = null;
+        }
     }
 
     public void OnAnswerSelected()
