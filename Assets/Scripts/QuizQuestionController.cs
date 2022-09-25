@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class QuizQuestionController : MonoBehaviour
+public class QuizQuestionController : QuizController
 {
     public void Init(QuizData.Question question, GameObject quizAnswerPrefab)
     {
@@ -20,14 +20,22 @@ public class QuizQuestionController : MonoBehaviour
         {
             Assert.IsTrue(false, "QuizQuestion tag not found");
         }
-    }
 
-    private Transform FindWithTag(Transform root, string tag)
-    {
-        foreach (Transform t in root.GetComponentsInChildren<Transform>())
+        var answerGo = FindWithTag(transform, "QuizAnswers");
+        if (answerGo != null)
         {
-            if (t.CompareTag(tag)) return t;
+            foreach (var ansData in question.GetAnswers())
+            {
+                var answer = Instantiate(quizAnswerPrefab, answerGo);
+                var controller = answer.GetComponent<QuizAnswerController>();
+                controller.Init(ansData.GetAnswerText(), ansData.IsCorrect());
+
+                // TODO: Rig onclick event to load next question, or show completeion canvas
+            }
         }
-        return null;
+        else
+        {
+            Assert.IsTrue(false, "QuizAnswers tag not found");
+        }   
     }
 }

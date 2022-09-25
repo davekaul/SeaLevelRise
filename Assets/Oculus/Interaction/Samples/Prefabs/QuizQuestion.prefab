@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2835851180462714989, guid: afb1615dd3b243a449003594175d971a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2904843611855666521, guid: afb1615dd3b243a449003594175d971a, type: 3}
       propertyPath: m_Name
       value: QuizQuestion
