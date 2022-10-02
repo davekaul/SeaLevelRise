@@ -57,6 +57,14 @@ public class QuizBuilder : MonoBehaviour
 
     public void OnAnswerSelected(bool isCorrect)
     {
+        StartCoroutine(DisplayAnswerResult(isCorrect));
+        
+    }
+
+    private IEnumerator DisplayAnswerResult(bool isCorrect)
+    {
+        _currentQuestion.GetComponent<QuizQuestionController>().SetResult(isCorrect);
+
         if (isCorrect)
         {
             Debug.Log("Answer is Correct");
@@ -67,6 +75,8 @@ public class QuizBuilder : MonoBehaviour
             Debug.Log("Answer is Incorrect");
         }
 
+        yield return new WaitForSeconds(3f);
+
         BuildNextQuestion();
-    }   
+    }
 }

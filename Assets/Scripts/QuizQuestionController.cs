@@ -1,41 +1,36 @@
 using System;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class QuizQuestionController : QuizController
 {
-    public void InitComplete(string successText)
+    private void SetQuestionText(string text)
     {
         var questionGo = FindWithTag(transform, "QuizQuestionText");
         if (questionGo != null)
         {
-            var text = questionGo.GetComponent<TextMeshProUGUI>();
+            var txt = questionGo.GetComponent<TextMeshProUGUI>();
             Assert.IsNotNull(text, "No text found on QuizQuestion");
 
-            text.text = successText;
+            txt.text = text;
         }
         else
         {
             Assert.IsTrue(false, "QuizQuestion tag not found");
         }
     }
+    
+    public void InitComplete(string successText)
+    {
+        SetQuestionText(successText);
+    }
 
     public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action<bool> OnAnswerSelected)
     {
-        var questionGo = FindWithTag(transform, "QuizQuestionText");
-        if (questionGo != null)
-        {
-            var text = questionGo.GetComponent<TextMeshProUGUI>();
-            Assert.IsNotNull(text, "No text found on QuizQuestion");
-
-            text.text = question.GetQuestionText();
-        }
-        else
-        {
-            Assert.IsTrue(false, "QuizQuestion tag not found");
-        }
-
+        SetQuestionText(question.GetQuestionText());
+        
         var answerGo = FindWithTag(transform, "QuizAnswers");
         if (answerGo != null)
         {
@@ -53,8 +48,11 @@ public class QuizQuestionController : QuizController
         }   
     }
 
-    private void UpdateScore(bool isCorrect)
+    public void SetResult(bool isCorrect)
     {
-        // TODO: Cache question count and score as static and provide to InitComplete
+        SetQuestionText(isCorrect ? "Correct!" : "Incorrect");
+        var answers = transform.GetComponentsInChildren<QuizAnswerController>().ToList();
+        answers.ForEach(x => x.gameObject.SetActive(false));
+
     }
 }
