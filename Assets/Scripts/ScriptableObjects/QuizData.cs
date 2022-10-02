@@ -40,6 +40,8 @@ public class QuizData : ScriptableObject
 
     [SerializeField] private List<Question> _questions;
 
+    public int GetTotalNumOfQuestions() => _questions.Count;
+
     private int _currentQuestion = -1;
     
     public void InitQuiz()

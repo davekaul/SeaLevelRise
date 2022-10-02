@@ -11,10 +11,22 @@ public class QuizBuilder : MonoBehaviour
 
     private GameObject _currentQuestion = null;
 
+    private int _totalAnswersCorrect = 0;
+    private int _totalAnswers = 0;
+
     public void Start()
     {
+        _totalAnswers = _quizData.GetTotalNumOfQuestions();
         _quizData.InitQuiz();
         BuildNextQuestion();
+    }
+
+    private static string ConvertToPercent(int numer, int denom)
+    {
+        var score = (float) numer / denom;
+        var percentage = double.Parse(score.ToString());
+        string output = percentage.ToString("p0");
+        return output;
     }
 
     private void BuildNextQuestion()
@@ -26,7 +38,7 @@ public class QuizBuilder : MonoBehaviour
         var question = _quizData.GetNextQuestion();
         if (question == null)
         {
-            questionController.InitComplete("Quiz is Finished!!");
+            questionController.InitComplete($"Quiz complete\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}");
         }
         else
         {
@@ -43,8 +55,18 @@ public class QuizBuilder : MonoBehaviour
         }
     }
 
-    public void OnAnswerSelected()
+    public void OnAnswerSelected(bool isCorrect)
     {
+        if (isCorrect)
+        {
+            Debug.Log("Answer is Correct");
+            _totalAnswersCorrect++;
+        }
+        else
+        {
+            Debug.Log("Answer is Incorrect");
+        }
+
         BuildNextQuestion();
     }   
 }
