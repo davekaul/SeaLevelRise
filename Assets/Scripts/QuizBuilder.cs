@@ -44,7 +44,7 @@ public class QuizBuilder : MonoBehaviour
         var question = _quizData.GetNextQuestion();
         if (question == null)
         {
-            questionController.InitComplete($"Quiz complete\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}");
+            questionController.InitComplete($"Quiz complete\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}", _quizData.InitQuiz);
         }
         else
         {
@@ -69,7 +69,7 @@ public class QuizBuilder : MonoBehaviour
 
     private IEnumerator DisplayAnswerResult(bool isCorrect)
     {
-        _currentQuestion.GetComponent<QuizQuestionController>().SetResult(isCorrect);
+        _currentQuestion.GetComponent<QuizQuestionController>().SetResult(isCorrect, BuildNextQuestion);
 
         _waterLevelController?.SetLevel(isCorrect);
 
