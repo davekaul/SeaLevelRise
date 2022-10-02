@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class QuizBuilder : MonoBehaviour
 {
@@ -14,8 +15,13 @@ public class QuizBuilder : MonoBehaviour
     private int _totalAnswersCorrect = 0;
     private int _totalAnswers = 0;
 
+    private WaterLevelController _waterLevelController;
+
     public void Start()
     {
+        _waterLevelController = FindObjectOfType<WaterLevelController>();
+        Assert.IsNotNull(_waterLevelController);
+
         _totalAnswers = _quizData.GetTotalNumOfQuestions();
         _quizData.InitQuiz();
         BuildNextQuestion();
@@ -64,6 +70,8 @@ public class QuizBuilder : MonoBehaviour
     private IEnumerator DisplayAnswerResult(bool isCorrect)
     {
         _currentQuestion.GetComponent<QuizQuestionController>().SetResult(isCorrect);
+
+        _waterLevelController?.SetLevel(isCorrect);
 
         if (isCorrect)
         {
