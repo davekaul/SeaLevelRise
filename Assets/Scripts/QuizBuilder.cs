@@ -17,6 +17,8 @@ public class QuizBuilder : MonoBehaviour
 
     private WaterLevelController _waterLevelController;
 
+    private Coroutine _currentCoroutine = null;
+
     public void Start()
     {
         _waterLevelController = FindObjectOfType<WaterLevelController>();
@@ -37,6 +39,12 @@ public class QuizBuilder : MonoBehaviour
 
     private void BuildNextQuestion()
     {
+        if (_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+            _currentCoroutine = null;
+        }
+
         DestroyQuestion();
         _currentQuestion = Instantiate(_quizQuestionPrefab, transform);
         var questionController = _currentQuestion.GetComponent<QuizQuestionController>();
@@ -63,8 +71,7 @@ public class QuizBuilder : MonoBehaviour
 
     public void OnAnswerSelected(bool isCorrect)
     {
-        StartCoroutine(DisplayAnswerResult(isCorrect));
-        
+        _currentCoroutine = StartCoroutine(DisplayAnswerResult(isCorrect)); 
     }
 
     private IEnumerator DisplayAnswerResult(bool isCorrect)
