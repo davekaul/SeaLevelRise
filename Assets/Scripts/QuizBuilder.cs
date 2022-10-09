@@ -52,7 +52,8 @@ public class QuizBuilder : MonoBehaviour
         var question = _quizData.GetNextQuestion();
         if (question == null)
         {
-            questionController.InitComplete($"Quiz complete\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}", _quizData.InitQuiz);
+            var msg = ((float)_totalAnswersCorrect / _totalAnswers) > 0.8f ? "Victory!" : "You Failed :`(";
+            questionController.InitComplete($"{msg}\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}", _quizData.InitQuiz);
         }
         else
         {
