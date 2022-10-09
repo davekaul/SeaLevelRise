@@ -30,7 +30,7 @@ public class QuizAnswerController : QuizController
         }
     }
 
-    public void InitNext(string answer, Action OnAnswerSelected)
+    public void InitNext(string answer, Action<bool> OnAnswerSelected)
     {
         var answerGo = FindWithTag(transform, "QuizAnswersText");
         if (answerGo != null)
@@ -42,7 +42,7 @@ public class QuizAnswerController : QuizController
             toggle.onValueChanged.AddListener(
                 delegate
                 {
-                    OnAnswerSelected();
+                    OnAnswerSelected(false);
                 });
         }
         else

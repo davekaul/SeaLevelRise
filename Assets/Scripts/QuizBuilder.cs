@@ -37,7 +37,7 @@ public class QuizBuilder : MonoBehaviour
         return output;
     }
 
-    private void BuildNextQuestion()
+    private void BuildNextQuestion(bool dummy = false)
     {
         if (_currentCoroutine != null)
         {
