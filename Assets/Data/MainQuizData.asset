@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MainQuizData
   m_EditorClassIdentifier: 
   _questions:
-  - _questionText: Intro 2
+  - _questionText: Video
     _questionImage: {fileID: 0}
     _questionVideoPath: video.mp4
     _disableScoring: 1
     _answers: []
-  - _questionText: Intro
+  - _questionText: Image
     _questionImage: {fileID: 21300000, guid: 5515134bbb0515545a347aafbba91666, type: 3}
     _questionVideoPath: 
     _disableScoring: 1
@@ -36,6 +36,11 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: answer 4
       _isCorrect: 1
+  - _questionText: Image
+    _questionImage: {fileID: 21300000, guid: 5515134bbb0515545a347aafbba91666, type: 3}
+    _questionVideoPath: 
+    _disableScoring: 1
+    _answers: []
   - _questionText: Question 2
     _questionImage: {fileID: 0}
     _questionVideoPath: 
@@ -49,6 +54,11 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: answer 4
       _isCorrect: 1
+  - _questionText: Video
+    _questionImage: {fileID: 0}
+    _questionVideoPath: video.mp4
+    _disableScoring: 1
+    _answers: []
   - _questionText: Question 3
     _questionImage: {fileID: 0}
     _questionVideoPath: 
@@ -62,3 +72,8 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: answer 4
       _isCorrect: 1
+  - _questionText: Video
+    _questionImage: {fileID: 0}
+    _questionVideoPath: video.mp4
+    _disableScoring: 1
+    _answers: []
