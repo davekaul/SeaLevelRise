@@ -20,7 +20,7 @@ public class WaterLevelController : MonoBehaviour
         Debug.Log("Setting Water Level " + (up ? "UP" : "DOWN"));
 
         var currPos = GetChildRoot.position;
-        var newPos = Mathf.Clamp(currPos.y + (up ? _step : -_step), _minLevel, _maxLevel);
+        var newPos = Mathf.Clamp(currPos.y + (up ? -_step : _step), _minLevel, _maxLevel);
         currPos.y = newPos;
         GetChildRoot.position = currPos;
 
