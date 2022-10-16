@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -41,7 +40,7 @@ public class QuizQuestionController : QuizController
         }
         else
         {
-            Assert.IsTrue(false, "QuizQuestionText tag not found");
+            //Assert.IsTrue(false, "QuizQuestionText tag not found");
         }
     }
     
@@ -73,7 +72,7 @@ public class QuizQuestionController : QuizController
         }
         else
         {
-            Assert.IsTrue(false, "QuizQuestionImage tag not found");
+            //Assert.IsTrue(false, "QuizQuestionImage tag not found");
         }
     }
 
@@ -106,17 +105,17 @@ public class QuizQuestionController : QuizController
         }
         else
         {
-            Assert.IsTrue(false, "QuizQuestionVideo tag not found");
+            //Assert.IsTrue(false, "QuizQuestionVideo tag not found");
         }
     }
 
-    public void InitComplete(string successText, Action<bool> OnSelected)
+    public void InitComplete(string successText, Action OnSelected)
     {
         SetQuestionText(successText);
-        SetNextButton("Rety Quiz", OnSelected);
+        SetNextButton("Rerty Quiz", OnSelected);
     }
 
-    public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action<bool> OnAnswerSelected)
+    public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected, Action<bool> OnScoreUpdate)
     {
         _quizAnswerPrefab = quizAnswerPrefab;
 
@@ -145,13 +144,14 @@ public class QuizQuestionController : QuizController
                     var answer = Instantiate(_quizAnswerPrefab, answerGo);
 
                     var controller = answer.GetComponent<QuizAnswerController>();
-                    controller.Init(ansData.GetAnswerText(), ansData.IsCorrect(), OnAnswerSelected);
+                    controller.Init(ansData.GetAnswerText(), ansData.IsCorrect(), OnAnswerSelected, OnScoreUpdate);
                 }
             }
             else
             {
                 var answer = Instantiate(_quizAnswerPrefab, answerGo);
                 var controller = answer.GetComponent<QuizAnswerController>();
+                
                 controller.InitNext("Next", OnAnswerSelected);
             }
         }
@@ -161,11 +161,11 @@ public class QuizQuestionController : QuizController
         }   
     }
 
-    public void SetResult(bool isCorrect, Action<bool> OnSelected)
+    public void SetResult(bool isCorrect, Action OnSelected)
     {
         if (_disableScoring)
         {
-            OnSelected(false);
+            OnSelected();
             return;
         }
 
@@ -175,7 +175,7 @@ public class QuizQuestionController : QuizController
         SetNextButton("Next Question", OnSelected);
     }
 
-    private void SetNextButton(string text, Action<bool> OnSelected)
+    private void SetNextButton(string text, Action OnSelected)
     {
         var answerGo = FindWithTag(transform, "QuizAnswers");
         if (answerGo != null)

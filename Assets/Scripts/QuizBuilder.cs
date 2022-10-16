@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -37,7 +36,7 @@ public class QuizBuilder : MonoBehaviour
         return output;
     }
 
-    private void BuildNextQuestion(bool dummy = false)
+    private void BuildNextQuestion()
     {
         if (_currentCoroutine != null)
         {
@@ -57,7 +56,7 @@ public class QuizBuilder : MonoBehaviour
         }
         else
         {
-            questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected);
+            questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected, OnScoreUpdated);
         }
     }
 
@@ -70,12 +69,7 @@ public class QuizBuilder : MonoBehaviour
         }
     }
 
-    public void OnAnswerSelected(bool isCorrect)
-    {
-        _currentCoroutine = StartCoroutine(DisplayAnswerResult(isCorrect)); 
-    }
-
-    private IEnumerator DisplayAnswerResult(bool isCorrect)
+    public void OnScoreUpdated(bool isCorrect)
     {
         _currentQuestion.GetComponent<QuizQuestionController>().SetResult(isCorrect, BuildNextQuestion);
 
@@ -90,9 +84,16 @@ public class QuizBuilder : MonoBehaviour
         {
             Debug.Log("Answer is Incorrect");
         }
+    }
 
+    public void OnAnswerSelected()
+    {
+        _currentCoroutine = StartCoroutine(DisplayAnswerResult()); 
+    }
+
+    private IEnumerator DisplayAnswerResult()
+    {
         yield return new WaitForSeconds(3f);
-
         BuildNextQuestion();
     }
 }

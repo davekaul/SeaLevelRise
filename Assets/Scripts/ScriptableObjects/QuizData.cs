@@ -67,11 +67,10 @@ public class QuizData : ScriptableObject
     {
        return _questions.FindAll(x => !x.IsScoringDisabled()).Count;
     }
-    
 
     private int _currentQuestion = -1;
     
-    public void InitQuiz(bool dummy = false)
+    public void InitQuiz()
     {
         _currentQuestion = 0;
     }

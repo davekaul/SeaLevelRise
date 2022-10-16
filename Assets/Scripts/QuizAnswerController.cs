@@ -7,7 +7,7 @@ public class QuizAnswerController : QuizController
 {
     public bool IsCorrect { get; private set; }
 
-    public void Init(string answer, bool isCorrect, Action<bool> OnAnswerSelected)
+    public void Init(string answer, bool isCorrect, Action OnAnswerSelected, Action<bool> OnScoreUpdate)
     {
         IsCorrect = isCorrect;
 
@@ -21,7 +21,8 @@ public class QuizAnswerController : QuizController
             toggle.onValueChanged.AddListener(
                 delegate
                 {
-                    OnAnswerSelected(IsCorrect);
+                    OnScoreUpdate(IsCorrect);
+                    OnAnswerSelected();
                 });
         }
         else
@@ -30,7 +31,7 @@ public class QuizAnswerController : QuizController
         }
     }
 
-    public void InitNext(string answer, Action<bool> OnAnswerSelected)
+    public void InitNext(string answer, Action OnAnswerSelected)
     {
         var answerGo = FindWithTag(transform, "QuizAnswersText");
         if (answerGo != null)
@@ -42,7 +43,7 @@ public class QuizAnswerController : QuizController
             toggle.onValueChanged.AddListener(
                 delegate
                 {
-                    OnAnswerSelected(false);
+                    OnAnswerSelected();
                 });
         }
         else
