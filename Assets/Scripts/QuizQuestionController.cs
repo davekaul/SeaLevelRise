@@ -109,10 +109,12 @@ public class QuizQuestionController : QuizController
         }
     }
 
-    public void InitComplete(string successText, Action OnSelected)
+    public void InitComplete(string successText, Action OnSelected, GameObject quizAnswerPrefab)
     {
+        _quizAnswerPrefab = quizAnswerPrefab;
+
         SetQuestionText(successText);
-        SetNextButton("Rerty Quiz", OnSelected);
+        SetNextButton("Retry Quiz", OnSelected);
     }
 
     public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected, Action<bool> OnScoreUpdate)

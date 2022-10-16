@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.SceneManagement;
 
 public class QuizBuilder : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class QuizBuilder : MonoBehaviour
         if (question == null)
         {
             var msg = ((float)_totalAnswersCorrect / _totalAnswers) > 0.8f ? "Victory!" : "You Failed :`(";
-            questionController.InitComplete($"{msg}\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}", _quizData.InitQuiz);
+            questionController.InitComplete($"{msg}\nYour Score is {ConvertToPercent(_totalAnswersCorrect, _totalAnswers)}", ReloadScene, _quizAnswerPrefab);
         }
         else
         {
@@ -95,5 +96,10 @@ public class QuizBuilder : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         BuildNextQuestion();
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
