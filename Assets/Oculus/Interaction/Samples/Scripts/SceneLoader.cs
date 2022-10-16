@@ -20,6 +20,34 @@ namespace Oculus.Interaction.Samples
     {
         private bool _loading = false;
 
+        private void Start()
+        {
+            var toggle = transform.GetComponent<ToggleDeselect>();
+
+            toggle?.onValueChanged.AddListener(
+                delegate
+                {
+                    LoadNextScene();
+                });
+        }
+
+        public void LoadNextScene()
+        {
+            var scene = SceneManager.GetActiveScene();
+            var index = scene.buildIndex + 1;
+            var newScene = NameFromIndex(index);
+            Load(newScene);
+        }
+
+        private static string NameFromIndex(int BuildIndex)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(BuildIndex);
+            int slash = path.LastIndexOf('/');
+            string name = path.Substring(slash + 1);
+            int dot = name.LastIndexOf('.');
+            return name.Substring(0, dot);
+        }
+
         public void Load(string sceneName)
         {
             if (_loading) return;
