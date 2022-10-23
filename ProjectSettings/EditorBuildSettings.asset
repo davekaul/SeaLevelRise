@@ -11,18 +11,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Oculus/Interaction/Samples/Scenes/BasicRay.unity
     guid: 7e040656f12f8dc44a6d88406081f26c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/Interaction/Samples/Scenes/BasicGrab.unity
     guid: 13bd76582a631124699f410c1e007f8c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/Interaction/Samples/Scenes/BasicPoke.unity
     guid: e6661efa421761b4299803adcd8c1c9a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/Interaction/Samples/Scenes/BasicPoseDetection.unity
     guid: 5661873a4cd8ad8469c072d3852197c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/Interaction/Samples/Scenes/ComplexGrab.unity
     guid: b4db51bf4876fde4ebaca05af639db73
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d6fbcd667eafada428c3edbfdd47ef7b, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 69e097125db452545a580e664e4f459c, type: 2}
