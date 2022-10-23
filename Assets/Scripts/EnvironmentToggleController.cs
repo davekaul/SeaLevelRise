@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.Assertions;
+using Oculus.Interaction;
 
 public class EnvironmentToggleController : MonoBehaviour
 {
     private int _childCount = 0;
     private int _currChild = 0;
+
+    [SerializeField] private ToggleDeselect _toggleDeselect;
 
     private void Start()
     {
@@ -12,6 +15,12 @@ public class EnvironmentToggleController : MonoBehaviour
         Assert.IsTrue(_childCount > 0);
 
         transform.GetChild(_currChild).gameObject.SetActive(true);
+
+        _toggleDeselect.onValueChanged.AddListener(
+            delegate
+            {
+                ToggleChild();
+            });
     }
 
     private void ToggleChild()
