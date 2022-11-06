@@ -19,6 +19,8 @@ public class QuizData : ScriptableObject
         // If scoring is disabled then we auto generate the next button, no need to populate these answers
         [SerializeField] private List<Answer> _answers;
 
+        [SerializeField] private int _currentMountPoint;
+
         public bool IsScoringDisabled()
         {
             return _disableScoring;

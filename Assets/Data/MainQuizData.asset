@@ -18,6 +18,7 @@ MonoBehaviour:
     _questionVideoPath: 
     _disableScoring: 1
     _answers: []
+    _currentMountPoint: 0
   - _questionText: Do hurricanes become more frequent due to global warming?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
@@ -31,6 +32,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: I don't know
       _isCorrect: 0
+    _currentMountPoint: 1
   - _questionText: Which of these factors has made the largest contribution to the
       rise in sea level over the past 100 years?
     _questionImage: {fileID: 0}
@@ -45,6 +47,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: Increased Ocean Salinization
       _isCorrect: 0
+    _currentMountPoint: 2
   - _questionText: Are higher areas in St. Augustine impacted by sea level rise?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
@@ -58,6 +61,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: I don't know
       _isCorrect: 0
+    _currentMountPoint: 2
   - _questionText: What percentage of heat from global warming has the ocean absorbed
       in the past 40 years?
     _questionImage: {fileID: 0}
@@ -72,6 +76,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: 50%
       _isCorrect: 0
+    _currentMountPoint: 3
   - _questionText: Does melting sea ice have the potential to raise sea level by
       several meters?
     _questionImage: {fileID: 0}
@@ -86,6 +91,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: I don't know
       _isCorrect: 0
+    _currentMountPoint: 3
   - _questionText: What percentage of the population in Florida lives within 50 miles
       of the coast?
     _questionImage: {fileID: 0}
@@ -100,6 +106,7 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: 25%
       _isCorrect: 0
+    _currentMountPoint: 4
   - _questionText: Is St. Augustine protected from sea level rise?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
@@ -113,8 +120,10 @@ MonoBehaviour:
       _isCorrect: 0
     - _answerText: I don't know
       _isCorrect: 0
+    _currentMountPoint: 0
   - _questionText: Video
     _questionImage: {fileID: 0}
     _questionVideoPath: video1.mp4
     _disableScoring: 1
     _answers: []
+    _currentMountPoint: 1
