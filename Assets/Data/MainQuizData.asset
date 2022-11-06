@@ -13,65 +13,106 @@ MonoBehaviour:
   m_Name: MainQuizData
   m_EditorClassIdentifier: 
   _questions:
-  - _questionText: Video
-    _questionImage: {fileID: 0}
-    _questionVideoPath: video1.mp4
-    _disableScoring: 1
-    _answers: []
   - _questionText: Image
-    _questionImage: {fileID: 21300000, guid: 4d553802610ed7e43a35f72638e7a660, type: 3}
+    _questionImage: {fileID: 21300000, guid: 38e396cf5446cb14490829c04c5f51f4, type: 3}
     _questionVideoPath: 
     _disableScoring: 1
     _answers: []
-  - _questionText: What Causes Sea Level Rise?
+  - _questionText: Do hurricanes become more frequent due to global warming?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
     _disableScoring: 0
     _answers:
-    - _answerText: Unknown
-      _isCorrect: 0
-    - _answerText: Not Sure
-      _isCorrect: 0
-    - _answerText: Can't Know This
-      _isCorrect: 0
-    - _answerText: Global Warming
+    - _answerText: Yes
       _isCorrect: 1
-  - _questionText: Image
-    _questionImage: {fileID: 21300000, guid: 1b30196ca66ece04f80c3809a3133644, type: 3}
-    _questionVideoPath: 
-    _disableScoring: 1
-    _answers: []
-  - _questionText: Whyt is this So Vital?
+    - _answerText: No
+      _isCorrect: 0
+    - _answerText: Maybe
+      _isCorrect: 0
+    - _answerText: I don't know
+      _isCorrect: 0
+  - _questionText: Which of these factors has made the largest contribution to the
+      rise in sea level over the past 100 years?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
     _disableScoring: 0
     _answers:
-    - _answerText: answer 1
-      _isCorrect: 0
-    - _answerText: answer 2
-      _isCorrect: 0
-    - _answerText: answer 3
-      _isCorrect: 0
-    - _answerText: answer 4
+    - _answerText: Warming of Ocean Waters
       _isCorrect: 1
-  - _questionText: Video
-    _questionImage: {fileID: 0}
-    _questionVideoPath: video1.mp4
-    _disableScoring: 1
-    _answers: []
-  - _questionText: Do You See How Important This is?
+    - _answerText: Melting Sea Ice
+      _isCorrect: 0
+    - _answerText: Increased River Runoff
+      _isCorrect: 0
+    - _answerText: Increased Ocean Salinization
+      _isCorrect: 0
+  - _questionText: Are higher areas in St. Augustine impacted by sea level rise?
     _questionImage: {fileID: 0}
     _questionVideoPath: 
     _disableScoring: 0
     _answers:
-    - _answerText: answer 1
+    - _answerText: Yes
       _isCorrect: 0
-    - _answerText: answer 2
-      _isCorrect: 0
-    - _answerText: answer 3
-      _isCorrect: 0
-    - _answerText: answer 4
+    - _answerText: No
       _isCorrect: 1
+    - _answerText: Maybe
+      _isCorrect: 0
+    - _answerText: I don't know
+      _isCorrect: 0
+  - _questionText: What percentage of heat from global warming has the ocean absorbed
+      in the past 40 years?
+    _questionImage: {fileID: 0}
+    _questionVideoPath: 
+    _disableScoring: 0
+    _answers:
+    - _answerText: 90%
+      _isCorrect: 1
+    - _answerText: 11%
+      _isCorrect: 0
+    - _answerText: 35%
+      _isCorrect: 0
+    - _answerText: 50%
+      _isCorrect: 0
+  - _questionText: Does melting sea ice have the potential to raise sea level by
+      several meters?
+    _questionImage: {fileID: 0}
+    _questionVideoPath: 
+    _disableScoring: 0
+    _answers:
+    - _answerText: Yes
+      _isCorrect: 0
+    - _answerText: No
+      _isCorrect: 1
+    - _answerText: Maybe
+      _isCorrect: 0
+    - _answerText: I don't know
+      _isCorrect: 0
+  - _questionText: What percentage of the population in Florida lives within 50 miles
+      of the coast?
+    _questionImage: {fileID: 0}
+    _questionVideoPath: 
+    _disableScoring: 0
+    _answers:
+    - _answerText: 80%
+      _isCorrect: 1
+    - _answerText: 50%
+      _isCorrect: 0
+    - _answerText: 10%
+      _isCorrect: 0
+    - _answerText: 25%
+      _isCorrect: 0
+  - _questionText: Is St. Augustine protected from sea level rise?
+    _questionImage: {fileID: 0}
+    _questionVideoPath: 
+    _disableScoring: 0
+    _answers:
+    - _answerText: Yes
+      _isCorrect: 0
+    - _answerText: No
+      _isCorrect: 1
+    - _answerText: Maybe
+      _isCorrect: 0
+    - _answerText: I don't know
+      _isCorrect: 0
   - _questionText: Video
     _questionImage: {fileID: 0}
     _questionVideoPath: video1.mp4

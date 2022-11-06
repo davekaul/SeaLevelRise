@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <record>
+    <Question>Is St. Augustine protected from sea   level rise?</Question>
+    <Image></Image>
+	<Video></Video>
+    <Answers>
+      <Answer correct="true">No</Answer>
+      <Answer correct="false">Yes</Answer>
+      <Answer correct="false">Maybe</Answer>
+      <Answer correct="false">I don't know</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  <record>
+    <Question>Do hurricanes become more frequent due to global warming?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">Yes</Answer>
+      <Answer correct="false">No</Answer>
+      <Answer correct="false">Maybe</Answer>
+      <Answer correct="false">I don't know</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  <record>
+    <Question>Are higher areas in St. Augustine impacted by sea level rise?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">Yes</Answer>
+      <Answer correct="false">No</Answer>
+      <Answer correct="false">Maybe</Answer>
+      <Answer correct="false">I don't know</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  <record>
+    <Question>What percentage of heat from global warming has the ocean absorbed in    the past 40 years?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">90%</Answer>
+      <Answer correct="false">11%</Answer>
+      <Answer correct="false">35%</Answer>
+      <Answer correct="false">50%</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  
+  <record>
+    <Question>Does melting sea ice has the potential    to raise sea level by several meters?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">No</Answer>
+      <Answer correct="false">Yes</Answer>
+      <Answer correct="false">Maybe</Answer>
+      <Answer correct="false">I don't know</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  <record>
+    <Question>What percentage of the population in Florida lives within 50 miles of the coast?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">80%</Answer>
+      <Answer correct="false">50%</Answer>
+      <Answer correct="false">10%</Answer>
+      <Answer correct="false">25%</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  <record>
+    <Question>Which of these factors has made the largest contribution to the rise in sea level over the past 100 years?</Question>
+    <Image></Image>
+    <Video></Video>
+    <Answers>
+      <Answer correct="true">Warming of ocean waters</Answer>
+      <Answer correct="false">Melting sea ice</Answer>
+      <Answer correct="false">increased river runoff</Answer>
+      <Answer correct="false">Increased Ocean salinization</Answer>
+    </Answers>
+    <Bonus>1</Bonus>
+    <Time>30</Time>
+  </record>
+  
+</data-set>
