@@ -9,6 +9,7 @@ public class QuizBuilder : MonoBehaviour
     [SerializeField] private GameObject _quizQuestionPrefab;
     [SerializeField] private GameObject _quizAnswerPrefab;
     [SerializeField] private QuizData _quizData;
+    [SerializeField] private MountPointController _mountPointController;
 
     private GameObject _currentQuestion = null;
 
@@ -57,6 +58,7 @@ public class QuizBuilder : MonoBehaviour
         }
         else
         {
+            _mountPointController.MountByIndex(question.GetCurrentMountPoint());
             questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected, OnScoreUpdated);
         }
     }

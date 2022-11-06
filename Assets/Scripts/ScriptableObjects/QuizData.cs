@@ -21,6 +21,11 @@ public class QuizData : ScriptableObject
 
         [SerializeField] private int _currentMountPoint;
 
+        public int GetCurrentMountPoint()
+        {
+            return _currentMountPoint;
+        }
+
         public bool IsScoringDisabled()
         {
             return _disableScoring;

@@ -14,21 +14,21 @@ public class MountPointController : MonoBehaviour
         Assert.IsTrue(_totalChildren > 0);
 
         _currentChild = 0;
-        MountByIndex(_currentChild, Environment);
+        MountByIndex(_currentChild);
     }
 
-    public void MountByIndex(int childIndex, Transform subject)
+    public void MountByIndex(int childIndex)
     {
         var target = transform.GetChild(childIndex);
-        subject.SetParent(target, false);  
+        Environment.SetParent(target, false);  
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.M))
-        {
-            _currentChild = (_currentChild + 1) % _totalChildren;
-            MountByIndex(_currentChild, Environment);
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.M))
+    //    {
+    //        _currentChild = (_currentChild + 1) % _totalChildren;
+    //        MountByIndex(_currentChild);
+    //    }
+    //}
 }
