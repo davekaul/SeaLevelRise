@@ -96,7 +96,7 @@ public class QuizBuilder : MonoBehaviour
 
     private IEnumerator DisplayAnswerResult()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         BuildNextQuestion();
     }
 
