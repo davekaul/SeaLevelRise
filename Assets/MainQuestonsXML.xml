@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <record>
-    <Question>Is St. Augustine protected from sea   level rise?</Question>
+    <Question>Is St. Augustine protected from sea level rise?</Question>
     <Image></Image>
 	<Video></Video>
     <Answers>
@@ -40,7 +40,7 @@
     <Time>30</Time>
   </record>
   <record>
-    <Question>What percentage of heat from global warming has the ocean absorbed in    the past 40 years?</Question>
+    <Question>What percentage of heat from global warming has the ocean absorbed in the past 40 years?</Question>
     <Image></Image>
     <Video></Video>
     <Answers>
@@ -54,7 +54,7 @@
   </record>
   
   <record>
-    <Question>Does melting sea ice has the potential    to raise sea level by several meters?</Question>
+    <Question>Does melting sea ice has the potential to raise sea level by several meters?</Question>
     <Image></Image>
     <Video></Video>
     <Answers>
