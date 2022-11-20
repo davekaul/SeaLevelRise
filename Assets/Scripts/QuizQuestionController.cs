@@ -11,6 +11,35 @@ public class QuizQuestionController : QuizController
     private GameObject _quizAnswerPrefab;
 
     private bool _disableScoring = false;
+    
+    private Color _correctBackground = new Color(0, 255, 0, 255);
+    private Color _incorrectBackground = new Color(255, 0, 0, 255);
+
+    private void SetCorrectBackground()
+    {
+        SetQuestionBackground(_correctBackground);
+    }
+
+    private void SetIncorrectBackground()
+    {
+        SetQuestionBackground(_incorrectBackground);
+    }
+
+    private void SetQuestionBackground(Color color)
+    {
+        var background = FindWithTag(transform, "QuizQuestionBackground");
+        if (background != null)
+        {
+            var img = background.GetComponent<Image>();
+            Assert.IsNotNull(img, "No Image found on QuizQuestionBackground");
+
+            img.color = color;
+        }
+        else
+        {
+            Assert.IsTrue(false, "QuizQuestionBackground tag not found");
+        }
+    }
 
     private void SetQuestionText(string text)
     {
@@ -169,6 +198,15 @@ public class QuizQuestionController : QuizController
         {
             OnSelected();
             return;
+        }
+
+        if (isCorrect)
+        {
+            SetCorrectBackground();
+        }
+        else
+        {
+            SetIncorrectBackground();
         }
 
         SetQuestionText(isCorrect ? "Correct!" : "Incorrect");
