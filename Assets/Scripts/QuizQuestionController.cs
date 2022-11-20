@@ -146,7 +146,7 @@ public class QuizQuestionController : QuizController
         SetNextButton("Retry Quiz", OnSelected);
     }
 
-    public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected, Action<bool> OnScoreUpdate)
+    public void Init(QuizData.Question question, GameObject quizAnswerPrefab, Action OnAnswerSelected, Action OnNextSelected, Action<bool> OnScoreUpdate)
     {
         _quizAnswerPrefab = quizAnswerPrefab;
 
@@ -183,7 +183,7 @@ public class QuizQuestionController : QuizController
                 var answer = Instantiate(_quizAnswerPrefab, answerGo);
                 var controller = answer.GetComponent<QuizAnswerController>();
                 
-                controller.InitNext("Next", OnAnswerSelected);
+                controller.InitNext("Next", OnNextSelected);
             }
         }
         else

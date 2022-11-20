@@ -59,7 +59,7 @@ public class QuizBuilder : MonoBehaviour
         else
         {
             _mountPointController.MountByIndex(question.GetCurrentMountPoint());
-            questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected, OnScoreUpdated);
+            questionController.Init(question, _quizAnswerPrefab, OnAnswerSelected, OnNextSelected, OnScoreUpdated);
         }
     }
 
@@ -82,6 +82,7 @@ public class QuizBuilder : MonoBehaviour
         {
             Debug.Log("Answer is Correct");
             _totalAnswersCorrect++;
+
         }
         else
         {
@@ -91,12 +92,17 @@ public class QuizBuilder : MonoBehaviour
 
     public void OnAnswerSelected()
     {
-        _currentCoroutine = StartCoroutine(DisplayAnswerResult()); 
+        _currentCoroutine = StartCoroutine(DisplayAnswerResult(2f)); 
     }
 
-    private IEnumerator DisplayAnswerResult()
+    public void OnNextSelected()
     {
-        yield return new WaitForSeconds(1f);
+        _currentCoroutine = StartCoroutine(DisplayAnswerResult(0f));
+    }
+
+    private IEnumerator DisplayAnswerResult(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         BuildNextQuestion();
     }
 
